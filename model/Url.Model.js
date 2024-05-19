@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const UrlSchema = new mongoose.Schema({
     originalUrl : {
-        type : String,
-        unique : true
+        type : String
     },
     shortenedUrl : {
         type : String,
