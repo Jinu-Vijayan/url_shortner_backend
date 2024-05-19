@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const URLRouter = require("./routers/Url.Router");
 const { redirectToURL } = require("./controller");
+const { allowCrossDomain } = require("./middleware");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 10000;
@@ -9,7 +10,9 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 const app = express();
 
+// Middlewares
 app.use(express.json());
+app.use(allowCrossDomain);
 
 app.use("/url",URLRouter)
 
